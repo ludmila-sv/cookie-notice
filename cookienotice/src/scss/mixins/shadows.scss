@@ -1,0 +1,8 @@
+/*  set desired standard shadows */
+@mixin large-shadow() {
+	box-shadow: 0 20px 60px transparentize( $black, 0.75 );
+}
+
+@mixin small-shadow() {
+	box-shadow: 0 10px 25px transparentize( $black, 0.85 );
+}

@@ -1,0 +1,10 @@
+// let's load only needed parts of bootstrap to our main stylesheet
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+//@import "~animate.css/animate"; -- install animate.css via npm in case of usage
+
+/* Load SCSS style theme parts */
+@import 'variables'; // we load our own theme's variables after bootstrap's to make sure we override colors and  other stuff
+@import 'mixins/*';
+@import 'partials/**/*';

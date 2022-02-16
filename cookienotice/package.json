@@ -1,0 +1,52 @@
+{
+  "name": "gupta",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-react-jsx": "^7.9.4",
+    "@babel/preset-env": "^7.9.5",
+    "@wordpress/scripts": "^14.1.1",
+    "autoprefixer": "^9.7.6",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "browserslist": "^4.11.1",
+    "cssnano": "^4.1.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0-beta.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-run-command": "0.0.10",
+    "gulp-sass": "^4.0.2",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-stylelint": "^13.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-uglify-es": "^2.0.0",
+    "gulp-watch": "^5.0.1",
+    "postcss-inline-svg": "^4.1.0",
+    "postcss-object-fit-images": "^1.1.2",
+    "stylelint": "^13.3.3"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 0.2%",
+    "IE 11",
+    "not dead"
+  ],
+  "dependencies": {
+    "@wordpress/api-fetch": "^3.23.1",
+    "@wordpress/block-editor": "^5.3.2",
+    "@wordpress/blocks": "^8.0.2",
+    "@wordpress/core-data": "^2.26.2",
+    "@wordpress/editor": "^9.26.2",
+    "@wordpress/element": "^2.20.2"
+  }
+}

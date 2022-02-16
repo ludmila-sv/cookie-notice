@@ -1,0 +1,78 @@
+// Replace letters
+@function str-replace( $string, $search, $replace: '' ) {
+	$index: str-index( $string, $search );
+
+	@if $index {
+		@return str-slice( $string, 1, $index - 1 ) + $replace +
+			str-replace(
+				str-slice( $string, $index + str-length( $search ) ),
+				$search,
+				$replace
+			);
+	}
+
+	@return $string;
+}
+
+// Encode symbols
+@function url-encode( $string ) {
+	$map: (
+		'%': '%25',
+		'<': '%3C',
+		'>': '%3E',
+		' ': '%20',
+		'!': '%21',
+		'*': '%2A',
+		"'": '%27',
+		'"': '%22',
+		'(': '%28',
+		')': '%29',
+		';': '%3B',
+		':': '%3A',
+		'@': '%40',
+		'&': '%26',
+		'=': '%3D',
+		'+': '%2B',
+		'$': '%24',
+		',': '%2C',
+		'/': '%2F',
+		'?': '%3F',
+		'#': '%23',
+		'[': '%5B',
+		']': '%5D',
+	);
+
+	$new: $string;
+
+	@each $search, $replace in $map {
+		$new: str-replace( $new, $search, $replace );
+	}
+
+	@return $new;
+}
+
+/**
+ * Function to make svg-load postcss-inlinde-svg plugin working in SCSS
+ *
+ * Usage:
+ *   background-image: svg-load('../path/to/file.svg', '#FILLCO', '#STROKE');
+ *
+ * Default directory to search images: src/icons
+ */
+@function svg-load( $url, $fill: '', $stroke: '' ) {
+	@if ( $fill and $stroke ) {
+		@return unquote(
+				'svg-load("#{$url}", fill: #{$fill}, stroke: #{$stroke})'
+		);
+	} @else if( $fill ) {
+		@return unquote( 'svg-load("#{$url}", fill: #{$fill}' );
+	} @else if( $stroke ) {
+		@return unquote( 'svg-load("#{$url}", stroke: #{$stroke})' );
+	}
+
+	@return unquote( 'svg-load("#{$url}"' );
+}
+
+@mixin inline-svg-bg( $svg-string ) {
+	background-image: url( 'data:image/svg+xml;charset=utf-8,#{url-encode($svg-string)}' );
+}
